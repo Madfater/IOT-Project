@@ -1,0 +1,89 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient">
+
+    <TextView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="60sp"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/white"
+        android:text="@string/Title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Register"
+        android:textColor="@color/white"
+        android:textSize="36dp"
+        />
+    <EditText
+        android:id="@+id/editText_user_register"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="#11000000"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:textSize="16dp"
+        android:layout_marginBottom="35dp"
+        android:layout_above="@+id/editText_password_register"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/editText_password_register"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="#11000000"
+        android:textColorHint="@color/white"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_above="@+id/editText_repassword_register"
+        android:layout_marginBottom="35dp"
+        android:layout_alignBottom="@+id/btn_Login"
+        android:layout_alignLeft="@+id/editText_user_register"
+        android:layout_alignStart="@+id/editText_user_register" />
+    <EditText
+        android:id="@+id/editText_repassword_register"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="#11000000"
+        android:textColorHint="@color/white"
+        android:ems="10"
+        android:hint="Confirm"
+        android:inputType="textPassword"
+        android:layout_marginBottom="130dp"
+        android:layout_alignBottom="@+id/btn_Registerfinish"
+        android:layout_alignLeft="@+id/editText_user_register"
+        android:layout_alignStart="@+id/editText_user_register" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_Registerfinish"
+        android:layout_above="@+id/btn_Cancel"
+        android:layout_marginBottom="20dp"
+        android:text="Finish"
+        android:layout_centerHorizontal="true"
+        android:background="@color/itemColor" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_Cancel"
+        android:text="Cancel"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/itemColor" />
+</RelativeLayout>
