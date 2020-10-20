@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Project</string>
     <string name="Title">智慧家電</string>
+    <string name="Title_air">冷氣控制</string>
+    <string name="Title_light">電燈控制</string>
+    <string name="Title_door">門禁控制</string>
+    <string name="Title_setting">設定</string>
+    <string name="Title_Main">主頁面</string>
 </resources>

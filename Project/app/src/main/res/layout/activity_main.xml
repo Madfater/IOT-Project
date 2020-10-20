@@ -23,7 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:id="@+id/title"
-        android:text="Main Screen"
+        android:text="@string/Title_Main"
         android:textColor="@color/white"
         android:textSize="36dp"
         />
@@ -55,7 +55,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="冷氣控制"
+                    android:text="@string/Title_air"
                     android:textColor="@color/white"
                     android:layout_below="@+id/btn_air">
                 </TextView>
@@ -81,7 +81,7 @@
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="電燈控制"
+                    android:text="@string/Title_light"
                     android:layout_centerHorizontal="true"
                     android:textColor="@color/white"
                     android:layout_below="@+id/btn_light"
@@ -112,7 +112,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="門禁控制"
+                    android:text="@string/Title_door"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/white"
                     android:layout_below="@+id/btn_door">
@@ -137,7 +137,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="設定"
+                    android:text="@string/Title_setting"
                     android:textColor="@color/white"
                     android:layout_below="@+id/btn_setting">
                 </TextView>
