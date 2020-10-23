@@ -16,6 +16,10 @@ class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        init()
+    }
+    fun init()
+    {
         btn_Login.setOnClickListener {
             var client=OkHttpClient()
             var builder=Request.Builder()

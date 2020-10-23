@@ -7,4 +7,6 @@
     <color name="title">#f5f5f5</color>
     <color name="itemColor">#ffc0cb</color>
     <color name="black">#000000</color>
+    <color name="green">#00EC00</color>
+    <color name="red">#EA0000</color>
 </resources>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@drawable/gradient"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ControlPage.Light_contral">
     <TextView
         android:layout_gravity="center"
@@ -12,20 +13,59 @@
         android:textSize="64sp"
         android:text="@string/Title"
         android:textColor="@color/title"
-        android:layout_marginTop="24sp"
+        android:layout_marginTop="60dp"
         android:id="@id/imageView"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content">
     </TextView>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:id="@+id/title"
-        android:text="Light Control"
+        android:layout_gravity="center"
+        android:text="@string/Title_light"
         android:textColor="@color/white"
         android:textSize="36dp"
         />
-</RelativeLayout>
+    <ImageView
+        android:src="@drawable/lightbulb_close"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:layout_marginTop="@dimen/Picture_below_titile"
+        android:background="@drawable/circle_button"
+        android:layout_height="wrap_content">
+    </ImageView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+        android:text="@string/switch_light">
+    </TextView>
+    <androidx.appcompat.widget.SwitchCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Switch_temp"
+        android:layout_marginTop="50dp"
+        android:longClickable="false"
+        android:layout_gravity="center"
+        app:switchMinWidth="200dp"
+        app:track="@drawable/track"
+        android:thumb="@drawable/thumb"
+        />
+    <Button
+        android:id="@+id/btn_back_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_button"
+        android:text="@string/back"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        >
+    </Button>
+</LinearLayout>

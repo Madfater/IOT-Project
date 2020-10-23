@@ -12,6 +12,14 @@ class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        init()
+    }
+
+    private  fun init()
+    {
+        btn_Cancel.setOnClickListener {
+            finish()
+        }
         btn_Registerfinish.setOnClickListener {
             println("qqq")
             if (editText_password_register.text.isEmpty() || editText_repassword_register.text.isEmpty() || editText_user_register.text.isEmpty())
@@ -85,9 +93,6 @@ class Register : AppCompatActivity() {
                 })
 
             }
-        }
-        btn_Cancel.setOnClickListener {
-            finish()
         }
     }
 }

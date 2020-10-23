@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/gradient"
     android:layout_height="match_parent"
     tools:context=".ControlPage.Door_contral">
@@ -12,20 +13,58 @@
         android:textSize="64sp"
         android:text="@string/Title"
         android:textColor="@color/title"
-        android:layout_marginTop="24sp"
+        android:layout_marginTop="50dp"
         android:id="@id/imageView"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content">
     </TextView>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_below="@id/imageView"
+        android:layout_marginTop="5dp"
+        android:text="@string/Title_door"
+        android:textColor="@color/white"
+        android:textSize="36dp" />
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/Picture_below_titile"
+        android:padding="15dp"
+        android:background="@drawable/circle_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/opened_door"
+        >
+    </ImageView>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:id="@+id/title"
-        android:text="Door Control"
+        android:layout_gravity="center"
         android:textColor="@color/white"
-        android:textSize="36dp"
-        />
-</RelativeLayout>
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+        android:text="@string/switch_door">
+    </TextView>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/door_button_close"
+        android:src="@drawable/close_lock">
+    </ImageButton>
+    <Button
+        android:id="@+id/btn_back_door"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_button"
+        android:text="@string/back"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        >
+    </Button>
+</LinearLayout>

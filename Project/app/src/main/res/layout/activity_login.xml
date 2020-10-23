@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="60sp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:textColor="@color/white"
         android:text="@string/Title"
         android:layout_alignParentTop="true"
@@ -24,13 +24,12 @@
         android:layout_below="@id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Login"
+        android:text="@string/login"
         android:textColor="@color/white"
         android:textSize="36dp"
         />
 
     <EditText
-
         android:id="@+id/editText_user"
         android:layout_width="250dp"
         android:layout_height="40dp"
@@ -38,7 +37,7 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:ems="10"
-        android:hint="Username"
+        android:hint="@string/username"
         android:inputType="textPersonName"
         android:textSize="16dp"
         android:layout_marginBottom="35dp"
@@ -52,7 +51,7 @@
         android:background="#11000000"
         android:textColorHint="@color/white"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/passward"
         android:inputType="textPassword"
         android:layout_marginBottom="130dp"
         android:layout_alignBottom="@+id/btn_Login"
@@ -60,10 +59,10 @@
         android:layout_alignStart="@+id/editText_user" />
 
     <Button
-        android:background="@color/itemColor"
+        android:background="@drawable/rectangle_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login"
         android:id="@+id/btn_Login"
         android:layout_marginBottom="31dp"
         android:layout_above="@+id/btn_register"
@@ -72,11 +71,11 @@
     </Button>
 
     <Button
-        android:background="@color/itemColor"
+        android:background="@drawable/rectangle_button"
         android:id="@+id/btn_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="@string/register"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp" />
