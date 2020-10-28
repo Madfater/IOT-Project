@@ -27,7 +27,7 @@ namespace 專題.Controllers
             da.Fill(ds);
             foreach(DataRow row in ds.Tables[0].Rows)
                 {
-                users.Add(new Models.User {username=row["AccountName"].ToString(),password=row["Password"].ToString() });
+                    users.Add(new Models.User {username=row["AccountName"].ToString(),password=row["Password"].ToString() });
                 }
             return Request.CreateResponse(HttpStatusCode.Created, users,
             GlobalConfiguration.Configuration.Formatters.JsonFormatter);
