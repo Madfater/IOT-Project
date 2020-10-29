@@ -49,7 +49,7 @@
     <androidx.appcompat.widget.SwitchCompat
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Switch_temp"
+        android:id="@+id/Switch_light"
         android:layout_marginTop="50dp"
         android:longClickable="false"
         android:layout_gravity="center"

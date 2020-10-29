@@ -18,7 +18,7 @@ namespace 專題.Controllers
 
         [Route("order/all")]
         [HttpGet]
-        public HttpResponseMessage GetAllAccount()
+        public HttpResponseMessage GetAllAccount()//測試用
         {
             cn.ConnectionString = cnstr;
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM command", cn);
@@ -32,20 +32,20 @@ namespace 專題.Controllers
             GlobalConfiguration.Configuration.Formatters.JsonFormatter);
         }
 
-        [Route("order/add")]
+        [Route("order/add")]//新增指令
         [HttpPost]
         public HttpResponseMessage NewOrder([FromBody]Order order)
         {
             cn.ConnectionString = cnstr;
             cn.Open();
-            Int32 startTime = (Int32)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-            SqlCommand cmd = new SqlCommand("INSERT INTO command(ORDERID,ORDERNAME,ORDERARGUMENT,ORDERDESCRIPTION,STATUS) VALUES(" + startTime + ",'" + order.Ordername + "','" + order.OrderArgument + "','" + order.OrderDescription + "','" + "new" + "')", cn);
+            Int32 id = (Int32)(DateTime.Now.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+            SqlCommand cmd = new SqlCommand("INSERT INTO command(ORDERID,ORDERNAME,ORDERARGUMENT,ORDERDESCRIPTION,STATUS) VALUES(" + id + ",'" + order.Ordername + "','" + order.OrderArgument + "','" + order.OrderDescription + "','" + "new" + "')", cn);
             cmd.ExecuteNonQuery();
             cn.Close();
-            return Request.CreateResponse(HttpStatusCode.OK);
+            return Request.CreateResponse(HttpStatusCode.OK,id, GlobalConfiguration.Configuration.Formatters.JsonFormatter);
         }
 
-        [Route("order/update")]
+        [Route("order/update")]//硬體回覆
         [HttpPost]
         public HttpResponseMessage UpdateOrder([FromBody]response response)
         {
@@ -59,10 +59,10 @@ namespace 專題.Controllers
 
         [Route("order/get")]
         [HttpPost]
-        public HttpResponseMessage GetOrder([FromBody]response response)
+        public HttpResponseMessage GetOrder([FromBody]response response)//硬體搜尋指令
         {
             cn.ConnectionString = cnstr;
-            SqlDataAdapter da = new SqlDataAdapter("SELECT MAX(OrderID) OrderID FROM command WHERE STATUS NOT IN('success') AND ORDERARGUMENT = " + response.res, cn);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT MAX(OrderID) OrderID FROM command WHERE STATUS NOT IN('success') AND ORDERID = " + response.res, cn);
             DataSet ds = new DataSet();
             da.Fill(ds);
             int id =Convert.ToInt32(ds.Tables[0].Rows[0]["OrderID"]);
@@ -75,6 +75,16 @@ namespace 專題.Controllers
             }
             return Request.CreateResponse(HttpStatusCode.Created, orders,
             GlobalConfiguration.Configuration.Formatters.JsonFormatter);
+        }
+        [Route("order/check")]
+        [HttpPost]
+        public HttpResponseMessage CheckOrder([FromBody]response response)//手機確認
+        {
+            cn.ConnectionString = cnstr;
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM command WHERE ORDERID = "+response.res, cn);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return Request.CreateResponse(HttpStatusCode.OK,ds.Tables[0].Rows[0]["STATUS"]);
         }
     }
 }

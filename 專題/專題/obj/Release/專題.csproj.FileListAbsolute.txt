@@ -206,3 +206,6 @@ C:\Users\ericl\Documents\GitHub\IOT-Project\專題\專題\obj\Release\專題.csp
 C:\Users\ericl\Documents\GitHub\IOT-Project\專題\專題\obj\Release\專題.csproj.CopyComplete
 C:\Users\ericl\Documents\GitHub\IOT-Project\專題\專題\obj\Release\專題.dll
 C:\Users\ericl\Documents\GitHub\IOT-Project\專題\專題\obj\Release\專題.pdb
+C:\Users\ericl\Documents\GitHub\IOT-Project\專題\專題\bin\System.Web.Cors.dll
+C:\Users\ericl\Documents\GitHub\IOT-Project\專題\專題\bin\System.Web.Http.Cors.dll
+C:\Users\ericl\Documents\GitHub\IOT-Project\專題\專題\bin\System.Web.Http.Cors.xml
