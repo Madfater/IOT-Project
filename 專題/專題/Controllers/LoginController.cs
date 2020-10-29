@@ -13,7 +13,7 @@ namespace 專題.Controllers
     [Route("login")]
     public class LoginController : ApiController
     {
-        String cnstr = @"Data Source=.;Initial Catalog='Smart Home';Integrated Security=True";
+        String cnstr = @"Data Source=DESKTOP-2L2S7UK\SQLEXPRESS;Initial Catalog='Smart Home';Integrated Security=True";
         SqlConnection cn=new SqlConnection();
         List<User> users=new List<User>();
 
@@ -32,7 +32,7 @@ namespace 專題.Controllers
             return Request.CreateResponse(HttpStatusCode.Created, users,
             GlobalConfiguration.Configuration.Formatters.JsonFormatter);
         }
-        [Route("api/login/check")]
+        [Route("login/check")]
         [HttpPost]
         public HttpResponseMessage AccountCheck([FromBody]User user)
         {

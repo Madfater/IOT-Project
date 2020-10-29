@@ -13,7 +13,7 @@ namespace 專題.Controllers
     [Route("reg")]
     public class RegisterController : ApiController
     {
-        String cnstr = @"Data Source=.;Initial Catalog='Smart Home';Integrated Security=True";
+        String cnstr = @"Data Source=DESKTOP-2L2S7UK\SQLEXPRESS;Initial Catalog='Smart Home';Integrated Security=True";
         SqlConnection cn = new SqlConnection();
         [Route("reg/do")]
         [HttpPost]
