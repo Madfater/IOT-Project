@@ -9,4 +9,5 @@
     <color name="black">#000000</color>
     <color name="green">#00EC00</color>
     <color name="red">#EA0000</color>
+    <color name="button">#2A3c58</color>
 </resources>

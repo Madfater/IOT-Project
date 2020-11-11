@@ -26,7 +26,7 @@
         android:layout_below="@id/imageView"
         android:layout_marginTop="5dp"
         android:text="@string/Title_door"
-        android:textColor="@color/white"
+        android:textColor="@color/title"
         android:textSize="36dp" />
     <ImageView
         android:layout_gravity="center"
@@ -42,27 +42,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textColor="@color/white"
+        android:textColor="@color/title"
         android:layout_marginTop="20dp"
         android:textSize="30dp"
         android:text="@string/switch_door">
     </TextView>
+
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:background="@drawable/door_button_close"
+        android:id="@+id/btn_door"
+        android:padding="10dp"
         android:src="@drawable/close_lock">
     </ImageButton>
+
     <Button
         android:id="@+id/btn_back_door"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rectangle_button"
         android:text="@string/back"
-        android:textColor="@color/white"
+        android:textColor="@color/button"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         >

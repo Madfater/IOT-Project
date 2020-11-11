@@ -25,7 +25,7 @@
         android:layout_marginTop="5dp"
         android:id="@+id/title"
         android:text="@string/Title_air"
-        android:textColor="@color/white"
+        android:textColor="@color/title"
         android:textSize="36dp"
         />
     <RelativeLayout
@@ -39,7 +39,7 @@
             android:layout_centerHorizontal="true"
             android:textAllCaps="false"
             android:textSize="60dp"
-            android:textColor="@color/white"
+            android:textColor="@color/title"
             android:id="@+id/txt_temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -65,7 +65,7 @@
                 android:id="@+id/btn_temp_up"
                 android:src="@drawable/up_arrow">
             </ImageButton>
-            <ImageView
+            <ImageButton
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                 android:id="@+id/btn_temp_down"
                 android:background="@drawable/circle_button"
                 android:src="@drawable/down_arrow">
-            </ImageView>
+            </ImageButton>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="大"
-                android:textColor="@color/white"
+                android:textColor="@color/title"
                 android:textSize="60dp"></TextView>
 
             <ImageButton
@@ -122,7 +122,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rectangle_button"
         android:text="@string/back"
-        android:textColor="@color/white"
+        android:textColor="@color/button"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         >

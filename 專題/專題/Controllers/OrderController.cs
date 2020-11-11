@@ -62,11 +62,11 @@ namespace 專題.Controllers
         public HttpResponseMessage GetOrder([FromBody]response response)//硬體搜尋指令
         {
             cn.ConnectionString = cnstr;
-            SqlDataAdapter da = new SqlDataAdapter("SELECT MAX(OrderID) OrderID FROM command WHERE STATUS NOT IN('success') AND ORDERID = " + response.res, cn);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT MAX(OrderID) OrderID FROM command WHERE STATUS NOT IN('success') AND ORDERARGUMENT = " + response.res, cn);
             DataSet ds = new DataSet();
             da.Fill(ds);
             int id =Convert.ToInt32(ds.Tables[0].Rows[0]["OrderID"]);
-            SqlDataAdapter da_final = new SqlDataAdapter("SELECT * FROM command WHERE Orderid = " + id, cn);
+            SqlDataAdapter da_final = new SqlDataAdapter("SELECT * FROM command WHERE OrderID = " + id, cn);
             DataSet ds_final = new DataSet();
             da_final.Fill(ds_final);
             foreach (DataRow row in ds_final.Tables[0].Rows)

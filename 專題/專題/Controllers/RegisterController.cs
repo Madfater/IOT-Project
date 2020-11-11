@@ -22,7 +22,7 @@ namespace 專題.Controllers
             var result = false;
             cn.ConnectionString = cnstr;
             cn.Open();
-            SqlCommand cmd = new SqlCommand("SELECT COUNT (ACCOUNTID) FROM ACCOUNT WHERE ACCOUNTNAME='"+user.username+"'", cn);
+            SqlCommand cmd = new SqlCommand("SELECT COUNT (ACCOUNTID) FROM ACCOUNT WHERE BOOKNAME='"+user.username+"'", cn);
             if(Convert.ToInt32(cmd.ExecuteScalar())==0)
             {
                 SqlCommand cmd_ID = new SqlCommand("SELECT COUNT (ACCOUNTID) FROM ACCOUNT",cn);

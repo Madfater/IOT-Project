@@ -14,4 +14,9 @@
     <string name="switch_door">門開關</string>
     <string name="back">返回</string>
     <string name="password_confirm">確認密碼</string>
+    <string name="progress_title">請稍等</string>
+    <string name="progress_text1">執行中</string>
+    <string name="progress_text2">執行中.</string>
+    <string name="progress_text3">執行中..</string>
+    <string name="progress_text4">執行中...</string>
 </resources>

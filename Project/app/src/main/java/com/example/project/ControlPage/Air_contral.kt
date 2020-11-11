@@ -1,5 +1,6 @@
 package com.example.project.ControlPage
 
+import android.net.sip.SipSession
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -9,6 +10,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.CompoundButton
+import android.widget.Switch
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.project.R
@@ -30,15 +32,13 @@ class Air_contral : AppCompatActivity(){
         init()
     }
     private fun init() {
-        val view=LayoutInflater.from(this).inflate(R.layout.progress_dialog,null)
         var client= OkHttpClient()
         var builder= Request.Builder()
         btn_back_air.setOnClickListener {
             finish()
         }
-        Switch_temp.setOnCheckedChangeListener{ compoundButton: CompoundButton, b: Boolean ->
-            if (b)
-            {
+         Switch_temp.setOnCheckedChangeListener{ compoundButton: CompoundButton, b: Boolean ->
+            if (b) {
                 var body= FormBody.Builder()
                     .add("Ordername","OpenAircon")
                     .add("OrderArgument","1")
@@ -48,6 +48,12 @@ class Air_contral : AppCompatActivity(){
                     .post(body)
                     .url("http://192.168.10.166/IOTApi/order/add")
                     .build()
+                val view=LayoutInflater.from(this).inflate(R.layout.progress_dialog,null)
+                var dialog=AlertDialog
+                    .Builder(this@Air_contral)
+                    .setView(view)
+                    .setCancelable(false)
+                    .show()
                 client.newCall(request).enqueue(object :Callback{
                     override fun onFailure(call: Call, e: IOException) {
                         runOnUiThread {
@@ -62,11 +68,55 @@ class Air_contral : AppCompatActivity(){
 
                     override fun onResponse(call: Call, response: Response) {
                         runOnUiThread {
-                            showview(view,response.body!!.string())
-                            AlertDialog
-                                .Builder(this@Air_contral)
-                                .setView(view)
-                                .show()
+                            var result =response.body!!.string()
+                            Thread{
+                                var times=0
+                                while(true)
+                                {
+                                    Thread.sleep(500)
+                                    Response(result)
+                                    if (response_=="success") {
+                                        runOnUiThread {
+                                            dialog.dismiss()
+                                            Toast.makeText(
+                                                applicationContext,
+                                                "Success!!",
+                                                Toast.LENGTH_SHORT).show()
+                                        }
+                                        response_=""
+                                        break
+                                    }
+                                    else
+                                    {
+                                        runOnUiThread {
+                                            when (times % 4) {
+                                                0 -> view.progress_text.text =
+                                                    resources.getString(R.string.progress_text1)
+                                                1 -> view.progress_text.text =
+                                                    resources.getString(R.string.progress_text2)
+                                                2 -> view.progress_text.text =
+                                                    resources.getString(R.string.progress_text3)
+                                                3 -> view.progress_text.text =
+                                                    resources.getString(R.string.progress_text4)
+                                            }
+                                        }
+                                        times++
+                                    }
+                                    if (times==12) {
+                                        runOnUiThread {
+                                            dialog.dismiss()
+                                            Switch_temp.setOnCheckedChangeListener(null)
+                                            Switch_temp.isChecked=false
+                                            Toast.makeText(
+                                                applicationContext,
+                                                "Fail!!",
+                                                Toast.LENGTH_SHORT).show()
+                                        }
+                                        response_=""
+                                        break
+                                    }
+                                }
+                            }.start()
                         }
                     }
                 })
@@ -82,6 +132,12 @@ class Air_contral : AppCompatActivity(){
                     .post(body)
                     .url("http://192.168.10.166/IOTApi/order/add")
                     .build()
+                val view=LayoutInflater.from(this).inflate(R.layout.progress_dialog,null)
+                var dialog=AlertDialog
+                    .Builder(this@Air_contral)
+                    .setView(view)
+                    .setCancelable(false)
+                    .show()
                 client.newCall(request).enqueue(object :Callback{
                     override fun onFailure(call: Call, e: IOException) {
                         runOnUiThread {
@@ -96,15 +152,304 @@ class Air_contral : AppCompatActivity(){
 
                     override fun onResponse(call: Call, response: Response) {
                         runOnUiThread {
-                            showview(view,response.body!!.string())
-                            AlertDialog
-                                .Builder(this@Air_contral,android.R.style.Theme_Material_Light_NoActionBar_Fullscreen)
-                                .setView(view)
-                                .show()
+                            var result =response.body!!.string()
+                            Thread{
+                                var times=0
+                                while(true)
+                                {
+                                    Thread.sleep(500)
+                                    Response(result)
+                                    if (response_=="success") {
+                                        runOnUiThread {
+                                            dialog.dismiss()
+                                            Toast.makeText(
+                                                applicationContext,
+                                                "Success!!",
+                                                Toast.LENGTH_SHORT).show()
+                                        }
+                                        response_=""
+                                        break
+                                    }
+                                    else
+                                    {
+                                        runOnUiThread {
+                                            when (times % 4) {
+                                                0 -> view.progress_text.text =
+                                                    resources.getString(R.string.progress_text1)
+                                                1 -> view.progress_text.text =
+                                                    resources.getString(R.string.progress_text2)
+                                                2 -> view.progress_text.text =
+                                                    resources.getString(R.string.progress_text3)
+                                                3 -> view.progress_text.text =
+                                                    resources.getString(R.string.progress_text4)
+                                            }
+                                        }
+                                        times++
+                                    }
+                                    if (times==12) {
+                                        runOnUiThread {
+                                            dialog.dismiss()
+                                            Switch_temp.isChecked=false
+                                            Toast.makeText(
+                                                applicationContext,
+                                                "Fail!!",
+                                                Toast.LENGTH_SHORT).show()
+                                        }
+                                        response_=""
+                                        break
+                                    }
+                                }
+                            }.start()
                         }
                     }
                 })
             }
+        }
+        btn_temp_up.setOnClickListener{
+            var body= FormBody.Builder()
+                .add("Ordername","TempUp")
+                .add("OrderArgument","1")
+                .add("OrderDescription","2")
+                .build()
+            var request=builder
+                .post(body)
+                .url("http://192.168.10.166/IOTApi/order/add")
+                .build()
+            val view=LayoutInflater.from(this).inflate(R.layout.progress_dialog,null)
+            var dialog=AlertDialog
+                .Builder(this@Air_contral)
+                .setView(view)
+                .setCancelable(false)
+                .show()
+            client.newCall(request).enqueue(object :Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                    runOnUiThread {
+                        Toast.makeText(
+                            applicationContext,
+                            "Fail to Connected to Service!!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        println(e.message.toString())
+                    }
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    runOnUiThread {
+                        var result =response.body!!.string()
+                        Thread{
+                            var times=0
+                            while(true)
+                            {
+                                Thread.sleep(500)
+                                Response(result)
+                                if (response_=="success") {
+                                    runOnUiThread {
+                                        dialog.dismiss()
+                                        Toast.makeText(
+                                            applicationContext,
+                                            "Success!!",
+                                            Toast.LENGTH_SHORT).show()
+                                    }
+                                    response_=""
+                                    break
+                                }
+                                else
+                                {
+                                    runOnUiThread {
+                                        when (times % 4) {
+                                            0 -> view.progress_text.text =
+                                                resources.getString(R.string.progress_text1)
+                                            1 -> view.progress_text.text =
+                                                resources.getString(R.string.progress_text2)
+                                            2 -> view.progress_text.text =
+                                                resources.getString(R.string.progress_text3)
+                                            3 -> view.progress_text.text =
+                                                resources.getString(R.string.progress_text4)
+                                        }
+                                    }
+                                    times++
+                                }
+                                if (times==12) {
+                                    runOnUiThread {
+                                        dialog.dismiss()
+                                        Switch_temp.isChecked=false
+                                        Toast.makeText(
+                                            applicationContext,
+                                            "Fail!!",
+                                            Toast.LENGTH_SHORT).show()
+                                    }
+                                    response_=""
+                                    break
+                                }
+                            }
+                        }.start()
+                    }
+                }
+            })
+        }
+        btn_temp_down.setOnClickListener {
+            var body= FormBody.Builder()
+                .add("Ordername","TempDown")
+                .add("OrderArgument","1")
+                .add("OrderDescription","-1")
+                .build()
+            var request=builder
+                .post(body)
+                .url("http://192.168.10.166/IOTApi/order/add")
+                .build()
+            val view=LayoutInflater.from(this).inflate(R.layout.progress_dialog,null)
+            var dialog=AlertDialog
+                .Builder(this@Air_contral)
+                .setView(view)
+                .setCancelable(false)
+                .show()
+            client.newCall(request).enqueue(object :Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                    runOnUiThread {
+                        Toast.makeText(
+                            applicationContext,
+                            "Fail to Connected to Service!!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        println(e.message.toString())
+                    }
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    runOnUiThread {
+                        var result =response.body!!.string()
+                        Thread{
+                            var times=0
+                            while(true)
+                            {
+                                Thread.sleep(500)
+                                Response(result)
+                                if (response_=="success") {
+                                    runOnUiThread {
+                                        dialog.dismiss()
+                                        Toast.makeText(
+                                            applicationContext,
+                                            "Success!!",
+                                            Toast.LENGTH_SHORT).show()
+                                    }
+                                    response_=""
+                                    break
+                                }
+                                else
+                                {
+                                    runOnUiThread {
+                                        when (times % 4) {
+                                            0 -> view.progress_text.text =
+                                                resources.getString(R.string.progress_text1)
+                                            1 -> view.progress_text.text =
+                                                resources.getString(R.string.progress_text2)
+                                            2 -> view.progress_text.text =
+                                                resources.getString(R.string.progress_text3)
+                                            3 -> view.progress_text.text =
+                                                resources.getString(R.string.progress_text4)
+                                        }
+                                    }
+                                    times++
+                                }
+                                if (times==12) {
+                                    runOnUiThread {
+                                        dialog.dismiss()
+                                        Switch_temp.isChecked=false
+                                        Toast.makeText(
+                                            applicationContext,
+                                            "Fail!!",
+                                            Toast.LENGTH_SHORT).show()
+                                    }
+                                    response_=""
+                                    break
+                                }
+                            }
+                        }.start()
+                    }
+                }
+            })
+        }
+        btn_fan.setOnClickListener {
+            var body= FormBody.Builder()
+                .add("Ordername","Fan")
+                .add("OrderArgument","1")
+                .add("OrderDescription","3")
+                .build()
+            var request=builder
+                .post(body)
+                .url("http://192.168.10.166/IOTApi/order/add")
+                .build()
+            val view=LayoutInflater.from(this).inflate(R.layout.progress_dialog,null)
+            var dialog=AlertDialog
+                .Builder(this@Air_contral)
+                .setView(view)
+                .setCancelable(false)
+                .show()
+            client.newCall(request).enqueue(object :Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                    runOnUiThread {
+                        Toast.makeText(
+                            applicationContext,
+                            "Fail to Connected to Service!!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        println(e.message.toString())
+                    }
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    runOnUiThread {
+                        var result =response.body!!.string()
+                        Thread{
+                            var times=0
+                            while(true)
+                            {
+                                Thread.sleep(500)
+                                Response(result)
+                                if (response_=="success") {
+                                    runOnUiThread {
+                                        dialog.dismiss()
+                                        Toast.makeText(
+                                            applicationContext,
+                                            "Success!!",
+                                            Toast.LENGTH_SHORT).show()
+                                    }
+                                    response_=""
+                                    break
+                                }
+                                else
+                                {
+                                    runOnUiThread {
+                                        when (times % 4) {
+                                            0 -> view.progress_text.text =
+                                                resources.getString(R.string.progress_text1)
+                                            1 -> view.progress_text.text =
+                                                resources.getString(R.string.progress_text2)
+                                            2 -> view.progress_text.text =
+                                                resources.getString(R.string.progress_text3)
+                                            3 -> view.progress_text.text =
+                                                resources.getString(R.string.progress_text4)
+                                        }
+                                    }
+                                    times++
+                                }
+                                if (times==12) {
+                                    runOnUiThread {
+                                        dialog.dismiss()
+                                        Switch_temp.isChecked=false
+                                        Toast.makeText(
+                                            applicationContext,
+                                            "Fail!!",
+                                            Toast.LENGTH_SHORT).show()
+                                    }
+                                    response_=""
+                                    break
+                                }
+                            }
+                        }.start()
+                    }
+                }
+            })
         }
     }
     private fun Response(id:String)
@@ -122,50 +467,9 @@ class Air_contral : AppCompatActivity(){
             override fun onFailure(call: Call, e: IOException) {
                 response_="fail"
             }
-
             override fun onResponse(call: Call, response: Response) {
                 response_=response.body!!.string()
             }
         })
-    }
-    private fun showview(view: View,id:String)
-    {
-        var times=0
-        view.progressBar.visibility=VISIBLE
-        Thread{
-            while(true)
-            {
-                Thread.sleep(100)
-                Response(id)
-                if (response_=="success")
-                {
-                    runOnUiThread {
-                        view.progressBar.visibility=GONE
-                        Toast.makeText(
-                            applicationContext,
-                            "Success!",
-                            Toast.LENGTH_SHORT
-                        )
-                    }
-                    response_=""
-                    break
-                }
-                else
-                    times++
-                if (times==50)
-                {
-                    runOnUiThread {
-                        view.progressBar.visibility=GONE
-                        Toast.makeText(
-                            applicationContext,
-                            "Fail!",
-                            Toast.LENGTH_SHORT
-                        )
-                    }
-                    response_=""
-                    break
-                }
-            }
-        }.start()
     }
 }

@@ -17,15 +17,15 @@
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content">
     </TextView>
+
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:id="@+id/title"
-        android:text="Seting"
-        android:textColor="@color/white"
-        android:textSize="36dp"
-        />
+        android:text="@string/Title_setting"
+        android:textColor="@color/title"
+        android:textSize="36dp" />
 </RelativeLayout>

@@ -25,7 +25,7 @@
         android:id="@+id/title"
         android:layout_gravity="center"
         android:text="@string/Title_light"
-        android:textColor="@color/white"
+        android:textColor="@color/title"
         android:textSize="36dp"
         />
     <ImageView
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textColor="@color/white"
+        android:textColor="@color/title"
         android:layout_marginTop="20dp"
         android:textSize="30dp"
         android:text="@string/switch_light">
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rectangle_button"
         android:text="@string/back"
-        android:textColor="@color/white"
+        android:textColor="@color/button"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         >
