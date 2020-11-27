@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,Light_contral::class.java))
         }
         btn_setting.setOnClickListener {
-            startActivity(Intent(this,Setting::class.java))
+            startActivity(Intent(this,Setting::class.java).apply { putExtra("username",NAME_GET) })
         }
     }
 

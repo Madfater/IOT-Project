@@ -19,4 +19,17 @@
     <string name="progress_text2">執行中.</string>
     <string name="progress_text3">執行中..</string>
     <string name="progress_text4">執行中...</string>
+    <string name="change_password">更換密碼</string>
+    <string name="about_us">關於我們</string>
+    <string name="individual_info">個人資料</string>
+    <string name="team">製作團隊</string>
+    <string name="web_api_maker">Web Api開發:李兆玄</string>
+    <string name="Hardware_maker">硬體開發:孫華佑</string>
+    <string name="app_maker">手機軟體開發:李兆玄</string>
+    <string name="database_maker">資料庫設計:林信佑</string>
+    <string name="firmware_maker">韌體開發:林信佑</string>
+    <string name="aircon_not_open">冷氣還沒開啟!!</string>
+    <string name="Failconnect">與伺服器連接失敗!!</string>
+    <string name="Success" >成功</string>
+    <string name="Fail">失敗</string>
 </resources>

@@ -52,5 +52,16 @@ namespace 專題.Controllers
             return Request.CreateResponse<bool>(HttpStatusCode.Created, result,
             GlobalConfiguration.Configuration.Formatters.JsonFormatter);
         }
+        [Route("login/change")]
+        [HttpPost]
+        public HttpResponseMessage Passwordchange([FromBody]User user)
+        {
+            cn.ConnectionString = cnstr;
+            cn.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE ACCOUNT SET PASSWORD = '"+user.password+"' WHERE ACCOUNTNAME = '" + user.username+"'", cn);
+            cmd.ExecuteNonQuery();
+            cn.Close();
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
     }
 }

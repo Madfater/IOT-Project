@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/fragment_background"
+    android:padding="20dp">
+    <TextView
+
+        android:id="@+id/setting_username"
+        android:text="@string/username"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TextView>
+    <EditText
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/setting_username"
+        android:hint="@string/passward"
+        android:id="@+id/setting_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </EditText>
+    <EditText
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/setting_password"
+        android:hint="@string/password_confirm"
+        android:id="@+id/setting_passwordconfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </EditText>
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/setting_passwordconfirm"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btn_change_password"
+        android:background="@drawable/rectangle_button"
+        android:textColor="@color/button"
+        android:text="@string/change_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </Button>
+</RelativeLayout>
